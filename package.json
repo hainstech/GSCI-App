@@ -1,0 +1,20 @@
+{
+  "name": "GSCI-App",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "ci:test": "echo passed",
+    "dev": "lerna run dev --stream",
+    "new-version": "lerna version --conventional-commits --yes",
+    "diff": "lerna diff",
+    "ci:deploy": "lerna run ci:deploy"
+  },
+  "version": "0.1.0",
+  "author": "Hainstech",
+  "license": "GPLv3",
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
