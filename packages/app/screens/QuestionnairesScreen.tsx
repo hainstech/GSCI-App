@@ -1,26 +1,42 @@
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import React, { useCallback, useState } from 'react';
 import { StyleSheet } from 'react-native';
+import { Container } from '../components/Container';
 import { Text, View } from '../components/Themed';
-import { RootTabScreenProps } from '../types';
+import { Questionnaire } from '../types';
+import { getQuestionnaires } from '../utils/requests';
+import { QuestionnairesButton } from './QuestionnairesScreen/QuestionnairesButton';
 
 export default function QuestionnaireScreen() {
+  const navigation = useNavigation();
+
+  const [questionnaires, setQuestionnaires] = useState<Questionnaire[]>([]);
+
+  useFocusEffect(
+    useCallback(() => {
+      (async () => {
+        const fetchedQuestionnaires = await getQuestionnaires();
+        setQuestionnaires(fetchedQuestionnaires);
+      })();
+    }, [])
+  );
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-    </View>
+    <Container>
+      {questionnaires.map((questionnaire) => (
+        <QuestionnairesButton
+          key={questionnaire._id}
+          title={questionnaire.title}
+          onPress={() => {
+            navigation.navigate('Questionnaire', { questionnaire });
+          }}
+        />
+      ))}
+    </Container>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   title: {
     fontSize: 20,
     fontWeight: 'bold',

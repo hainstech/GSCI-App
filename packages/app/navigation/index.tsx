@@ -17,6 +17,7 @@ import { ColorSchemeName } from 'react-native';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import NotFoundScreen from '../screens/NotFoundScreen';
+import QuestionnaireScreen from '../screens/QuestionnaireScreen';
 import QuestionnairesScreen from '../screens/QuestionnairesScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import { RootStackParamList, RootTabParamList } from '../types';
@@ -53,6 +54,11 @@ function RootNavigator() {
         name="NotFound"
         component={NotFoundScreen}
         options={{ title: 'Oops!' }}
+      />
+      <Stack.Screen
+        name="Questionnaire"
+        component={QuestionnaireScreen}
+        options={{ title: 'Questionnaire' }}
       />
     </Stack.Navigator>
   );
