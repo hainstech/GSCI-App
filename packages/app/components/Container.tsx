@@ -5,3 +5,9 @@ export const Container = styled.View`
   align-items: center;
   justify-content: center;
 `;
+
+export const FormContainer = styled.View`
+  width: 80%;
+  height: 90%;
+  margin-top: 10%;
+`;

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Container } from '../components/Container';
+import { Container, FormContainer } from '../components/Container';
 import { RootStackScreenProps } from '../types';
 import ReactNativeForm, { defaultProps, FormContext } from 'rjsf-native';
 import { Alert, Button } from 'react-native';
@@ -11,26 +11,29 @@ export default function QuestionnaireScreen({
   const form = useRef<any>(null);
   return (
     <Container>
-      <ReactNativeForm
-        // @ts-ignore
-        ref={form}
-        onError={(e) => {
-          Alert.alert('Error', 'Please fill in all the fields');
-        }}
-        schema={questionnaire.schema}
-        uiSchema={questionnaire.uischema}
-        onSubmit={(form) => {
-          const { formData } = form;
-          console.log(formData);
-        }}
-      >
-        <Button
-          title="Submit"
-          onPress={() => {
-            form.current?.submit();
+      <FormContainer>
+        <ReactNativeForm
+          // @ts-ignore
+          ref={form}
+          onError={(e) => {
+            Alert.alert('Error', 'Please fill in all the fields');
           }}
-        />
-      </ReactNativeForm>
+          schema={questionnaire.schema}
+          uiSchema={questionnaire.uischema}
+          onSubmit={(form) => {
+            const { formData } = form;
+            console.log(formData);
+          }}
+          {...defaultProps}
+        >
+          <Button
+            title="Submit"
+            onPress={() => {
+              form.current?.submit();
+            }}
+          />
+        </ReactNativeForm>
+      </FormContainer>
     </Container>
   );
 }
