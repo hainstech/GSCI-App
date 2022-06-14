@@ -6,7 +6,7 @@ export const Container = styled.View`
   justify-content: center;
 `;
 
-export const FormContainer = styled.View`
+export const QuestionnaireContainer = styled.View`
   width: 80%;
   height: 90%;
   margin-top: 10%;

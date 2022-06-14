@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Container, FormContainer } from '../components/Container';
+import { Container, QuestionnaireContainer } from '../components/Container';
 import { RootStackScreenProps } from '../types';
 import ReactNativeForm, { defaultProps, FormContext } from 'rjsf-native';
 import { Alert, Button } from 'react-native';
@@ -11,7 +11,7 @@ export default function QuestionnaireScreen({
   const form = useRef<any>(null);
   return (
     <Container>
-      <FormContainer>
+      <QuestionnaireContainer>
         <ReactNativeForm
           // @ts-ignore
           ref={form}
@@ -33,7 +33,7 @@ export default function QuestionnaireScreen({
             }}
           />
         </ReactNativeForm>
-      </FormContainer>
+      </QuestionnaireContainer>
     </Container>
   );
 }
