@@ -75,6 +75,13 @@ export interface User {
   _id: string;
   email: string;
   role: string;
+  carerId: string;
 }
 
 export type Token = string;
+
+export interface FilledQuestionnaire {
+  questionnaire: string;
+  time: Date;
+  formData: Array<any>;
+}

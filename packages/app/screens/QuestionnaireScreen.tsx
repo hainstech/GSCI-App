@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
 import { Container, QuestionnaireContainer } from '../components/Container';
-import { RootStackScreenProps } from '../types';
+import { FilledQuestionnaire, RootStackScreenProps } from '../types';
 import ReactNativeForm, { defaultProps, FormContext } from 'rjsf-native';
 import { Alert, Button } from 'react-native';
+import { pushQuestionnaire } from '../utils/questionnaireUploader';
 
 export default function QuestionnaireScreen({
   route,
@@ -20,9 +21,15 @@ export default function QuestionnaireScreen({
           }}
           schema={questionnaire.schema}
           uiSchema={questionnaire.uischema}
-          onSubmit={(form) => {
+          onSubmit={async (form) => {
             const { formData } = form;
-            console.log(formData);
+            const filledQuestionnaire: FilledQuestionnaire = {
+              questionnaire: questionnaire._id,
+              formData,
+              time: new Date(),
+            };
+
+            await pushQuestionnaire(filledQuestionnaire);
           }}
           {...defaultProps}
         >

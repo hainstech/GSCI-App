@@ -5,7 +5,7 @@ import NetInfo from '@react-native-community/netinfo';
 import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
-import { Alert } from 'react-native';
+import { pushStoredQuestionnaires } from './utils/questionnaireUploader';
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -13,8 +13,10 @@ export default function App() {
 
   useEffect(() => {
     NetInfo.addEventListener((connection) => {
-      if (connection.type === 'none') {
-        Alert.alert('No Internet Connection', 'Please connect to the internet');
+      if (connection.isInternetReachable) {
+        (async () => {
+          await pushStoredQuestionnaires();
+        })();
       }
     });
   }, []);
