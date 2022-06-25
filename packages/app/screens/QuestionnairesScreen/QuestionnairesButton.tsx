@@ -1,6 +1,5 @@
 import { TouchableOpacityProps } from 'react-native';
 import styled from 'styled-components/native';
-import { Questionnaire } from '../../types';
 
 export const QuestionnairesTouchableOpacity = styled.TouchableOpacity`
   background-color: #55b8ff;

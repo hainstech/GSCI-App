@@ -1,15 +1,23 @@
 import axios from 'axios';
-import Constants from 'expo-constants';
+import { API_URL } from '../globals';
 import { Questionnaire } from '../types';
-const { manifest } = Constants;
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const URI = `http://${manifest?.debuggerHost
-  ?.split(':')
-  ?.shift()
-  ?.concat(`:3000`)}`;
-
-// get resquest to /questionnaire
 export const getQuestionnaires = async (): Promise<Questionnaire[]> => {
-  const response = await axios.get(`${URI}/questionnaire`);
-  return response.data;
+  let questionnaires = [];
+
+  try {
+    const response = await axios.get(`${API_URL}/questionnaire`);
+    await AsyncStorage.setItem('questionnaires', JSON.stringify(response.data));
+    console.log('Used the API questionnaires');
+    questionnaires = response.data;
+  } catch (error) {
+    console.log('Used the cached questionnaires');
+    const questionnairesString = await AsyncStorage.getItem('questionnaires');
+    if (questionnairesString) {
+      questionnaires = JSON.parse(questionnairesString);
+    }
+  }
+
+  return questionnaires;
 };

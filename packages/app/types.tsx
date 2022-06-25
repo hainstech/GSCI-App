@@ -70,3 +70,11 @@ export type UISchemaSubmitButtonOptions = {
     [name: string]: any;
   };
 };
+
+export interface User {
+  _id: string;
+  email: string;
+  role: string;
+}
+
+export type Token = string;
