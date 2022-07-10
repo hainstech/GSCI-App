@@ -7,7 +7,9 @@ import { FilledQuestionnaire, User } from '../types';
 const storeQuestionnaire = async (
   questionnaire: FilledQuestionnaire
 ): Promise<void> => {
-  const storedQuestionnaires = await AsyncStorage.getItem('questionnaires');
+  const storedQuestionnaires = await AsyncStorage.getItem(
+    'filledQuestionnaires'
+  );
   const questionnaires = storedQuestionnaires
     ? JSON.parse(storedQuestionnaires)
     : [];
@@ -22,7 +24,9 @@ const storeQuestionnaire = async (
 
 export const pushStoredQuestionnaires = async (): Promise<void> => {
   try {
-    const storedQuestionnaires = await AsyncStorage.getItem('questionnaires');
+    const storedQuestionnaires = await AsyncStorage.getItem(
+      'filledQuestionnaires'
+    );
     const questionnaires = storedQuestionnaires
       ? JSON.parse(storedQuestionnaires)
       : [];
@@ -38,7 +42,7 @@ export const pushStoredQuestionnaires = async (): Promise<void> => {
       if (response.status !== 201) {
         throw new Error('Error uploading questionnaires');
       }
-      await AsyncStorage.removeItem('questionnaires');
+      await AsyncStorage.removeItem('filledQuestionnaires');
       Alert.alert(
         'Questionnaires pushed',
         'The questionnaires have been pushed successfully'

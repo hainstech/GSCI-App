@@ -4,11 +4,13 @@ import { FilledQuestionnaire, RootStackScreenProps } from '../types';
 import ReactNativeForm, { defaultProps, FormContext } from 'rjsf-native';
 import { Alert, Button } from 'react-native';
 import { pushQuestionnaire } from '../utils/questionnaireUploader';
+import { useNavigation } from '@react-navigation/native';
 
 export default function QuestionnaireScreen({
   route,
 }: RootStackScreenProps<'Questionnaire'>) {
   const { questionnaire } = route.params;
+  const navigation = useNavigation();
   const form = useRef<any>(null);
   return (
     <Container>
@@ -30,6 +32,7 @@ export default function QuestionnaireScreen({
             };
 
             await pushQuestionnaire(filledQuestionnaire);
+            navigation.navigate('Root');
           }}
           {...defaultProps}
         >
