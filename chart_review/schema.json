@@ -1,0 +1,452 @@
+{
+  "type": "object",
+  "title": "Cross Lake Chart Review",
+  "properties": {
+    "communityName": {
+      "title": "Community name",
+      "type": "string"
+    },
+    "clinicName": {
+      "type": "string",
+      "title": "Clinic name"
+    },
+    "todaysDate": {
+      "title": "Todays Date",
+      "type": "string"
+    },
+    "preImplementation": {
+      "title": "Pre-implementation",
+      "type": "boolean"
+    },
+    "postImplementation": {
+      "title": "Post-implementation",
+      "type": "boolean"
+    },
+    "patientName": {
+      "title": "Patient Name",
+      "type": "string"
+    },
+    "idNumber": {
+      "title": "ID # assigned by GSCI",
+      "type": "string"
+    },
+    "age": {
+      "title": "Age",
+      "type": "integer"
+    },
+    "sex": {
+      "enum": ["male", "female"],
+      "title": "Sex",
+      "type": "string",
+      "enumNames": ["Male", "Female"]
+    },
+    "occupation": {
+      "title": "1.A) This adult works (paid or unpaid ) as a (if applicable) :",
+      "type": "string"
+    },
+    "painPreventingWork": {
+      "enum": ["yes", "no"],
+      "title": "1.B) Is this adult unable to work due to neck or back pain?    ",
+      "type": "string",
+      "enumNames": ["Yes", "No"]
+    },
+    "painReducingWorkCapacity": {
+      "enum": ["yes", "no"],
+      "title": "1.C) Is this adult experiencing reduced work capacity due to neck/back pain?  ",
+      "type": "string",
+      "enumNames": ["Yes", "No"]
+    },
+    "informationNotInFile": {
+      "title": "1.D) Work information not in the file  ",
+      "type": "boolean"
+    },
+    "clinicAttendedDuringLastYear": {
+      "enum": ["yes", "no"],
+      "title": "2) Did this adult attend the local clinic for either neck or back pain in the last year up to and including today? (If the answer to question 2 is ‘No’, please go to Question 4.A) and then discontinue the review of this chart.)   ",
+      "type": "string",
+      "enumNames": ["Yes", "No"]
+    },
+    "attendingClinician": {
+      "title": "3) Was the attending clinician a: ",
+      "type": "object",
+      "description": "",
+      "properties": {
+        "doctor": {
+          "title": "Doctor (MD)",
+          "type": "boolean"
+        },
+        "nurse": {
+          "title": "Nurse (N)",
+          "type": "boolean"
+        },
+        "physiotherapist ": {
+          "title": "Physiotherapist (PT)",
+          "type": "boolean"
+        },
+        "chiropractor ": {
+          "title": "Chiropractor (DC)",
+          "type": "boolean"
+        },
+        "other": {
+          "title": "Other (O)",
+          "type": "boolean"
+        },
+        "specify": {
+          "title": "Specify ",
+          "type": "string"
+        },
+        "informationNotInChart": {
+          "title": "This information is not in the chart ",
+          "type": "boolean"
+        }
+      },
+      "dependencies": {},
+      "required": []
+    },
+    "traditionalHealer": {
+      "enum": ["yes", "no", "informationNotInChart"],
+      "title": "4) Did this adult see a Traditional Healer?",
+      "type": "string",
+      "enumNames": ["Yes", "No", "This information is not in the chart "]
+    },
+    "attendingConductPhysicalExamination": {
+      "enum": ["yes", "no", "informationNotInChart"],
+      "title": "5) Did the attending clinician conduct a physical examination",
+      "type": "string",
+      "enumNames": ["Yes", "No", "This information is not in the chart "]
+    },
+    "imagingOrdered": {
+      "enum": ["yes", "no", "informationNotInChart"],
+      "title": "6.A) Was any imaging ordered at any time?   ",
+      "type": "string",
+      "enumNames": ["Yes", "No", "This information is not in the chart  "]
+    },
+    "typeOfImagingOrdered": {
+      "title": "6.B) If the answer was ‘Yes’ to question 6.A, please indicate the type of imaging ordered:",
+      "type": "object",
+      "properties": {
+        "xRays": {
+          "title": "X rays ",
+          "type": "boolean"
+        },
+        "ctScan": {
+          "title": "CT scan ",
+          "type": "boolean"
+        },
+        "mri": {
+          "title": "MRI",
+          "type": "boolean"
+        },
+        "ultrasound": {
+          "title": "Ultrasound ",
+          "type": "boolean"
+        },
+        "boneScan": {
+          "title": "Bone Scan ",
+          "type": "boolean"
+        }
+      },
+      "dependencies": {},
+      "required": []
+    },
+    "diagnosisRendered": {
+      "enum": ["yes", "no"],
+      "title": "7.A) Was a diagnosis rendered?   ",
+      "type": "string",
+      "enumNames": ["Yes", "No"]
+    },
+    "writeDiagnosisHere": {
+      "title": "7.B) If the answer was \"yes\" to question 7.A), please write the diagnosis here",
+      "type": "string"
+    },
+    "gsciClassification": {
+      "enum": ["yes", "no"],
+      "title": "8.A) Could a GSCI classification have been made from the data in this file",
+      "type": "string",
+      "enumNames": ["Yes", "No"]
+    },
+    "appropriateClassification": {
+      "title": "8.B) If the answer was \"yes\" to question 8.A), please specify what classification would have been appropriate ",
+      "type": "string"
+    },
+    "gsciSubClassification": {
+      "enum": ["yes", "no"],
+      "title": "9.A) Could a GSCI sub classification have been made from the data in the file?  ",
+      "type": "string",
+      "enumNames": ["Yes", "No"]
+    },
+    "appropriateSubClassification": {
+      "title": "9.B) If the answer was \"yes\" to question 9.A), please specify what sub classification would have been appropriate ",
+      "type": "string"
+    },
+    "treatedForPainAtThisClinic": {
+      "enum": ["yes", "no"],
+      "title": "10. If this adult attended for neck and or back pain, was/is this adult being treated for that neck or back pain at this clinic (If no, skip to question 13):  ",
+      "type": "string",
+      "enumNames": ["Yes", "No"]
+    },
+    "treatedWithMedication": {
+      "title": "11.A) If this adult was/is being treated, was/is this adult being treated with the following medications:",
+      "type": "object",
+      "properties": {
+        "prescriptionNSAID              ": {
+          "title": "Prescription  NSAID              ",
+          "type": "boolean"
+        },
+        "non-prescriptionNSAID": {
+          "title": "Non-prescription  NSAID",
+          "type": "boolean"
+        },
+        "acetaminophen": {
+          "title": "Acetaminophen",
+          "type": "boolean"
+        },
+        "muscleRelaxants": {
+          "title": "Muscle relaxants",
+          "type": "boolean"
+        },
+        "opioidsNarcotics": {
+          "title": "Opioids/Narcotics",
+          "type": "boolean"
+        },
+        "otherSpecify": {
+          "title": "Other (specify)",
+          "type": "string"
+        },
+        "medicationByInjection": {
+          "enum": ["yes", "no"],
+          "title": "Was any medication delivered by injection/intravenously?",
+          "type": "string",
+          "enumNames": ["Yes", "No"]
+        }
+      },
+      "dependencies": {
+        "opioidsNarcotics": {
+          "oneOf": [
+            {
+              "properties": {
+                "opioidsNarcotics": {
+                  "enum": [true]
+                },
+                "narcoticName": {
+                  "title": "Type/name of opioids/narcotics used",
+                  "type": "string"
+                },
+                "prescribedForPainNarcotics": {
+                  "enum": ["yes", "no"],
+                  "title": "Was this this medication prescribed for back/neck pain",
+                  "type": "string",
+                  "enumNames": ["Yes", "No"]
+                }
+              },
+              "required": []
+            }
+          ]
+        }
+      },
+      "required": ["medicationByInjection"]
+    },
+    "spineMassage": {
+      "title": "11.B) If this adult was/is being treated, was/is this adult being treated with a massage of the spine:",
+      "type": "object",
+      "properties": {
+        "spineMassage": {
+          "title": "Massage of the spine",
+          "type": "boolean"
+        },
+        "deliveredBy": {
+          "title": "Delivered By",
+          "type": "string"
+        },
+        "informationNotInChart": {
+          "title": "This information is not in the chart  ",
+          "type": "boolean"
+        }
+      },
+      "dependencies": {},
+      "required": []
+    },
+    "manipulation": {
+      "title": "11.C) If this adult was/is being treated, was/is this adult being treated with a manipulation of the spine:",
+      "type": "object",
+      "properties": {
+        "spineManipulation": {
+          "title": "Manipulation of the spine",
+          "type": "boolean"
+        },
+        "deliveredBy": {
+          "title": "Delivered By",
+          "type": "string"
+        },
+        "informationNotInChart": {
+          "title": "This information is not in the chart  ",
+          "type": "boolean"
+        }
+      },
+      "dependencies": {},
+      "required": []
+    },
+    "homeGroupExercises": {
+      "title": "11.D) If this adult was/is being treated, was/is this adult being treated with home or group exercises:",
+      "type": "object",
+      "properties": {
+        "homeGroupExercises": {
+          "title": "Home or group exercises",
+          "type": "boolean"
+        },
+        "deliveredBy": {
+          "title": "Delivered By",
+          "type": "string"
+        },
+        "informationNotInChart": {
+          "title": "This information is not in the chart  ",
+          "type": "boolean"
+        }
+      },
+      "dependencies": {},
+      "required": []
+    },
+    "education": {
+      "title": "11.E) If this adult was/is being treated, was/is this adult being treated with education (neck/back):",
+      "type": "object",
+      "properties": {
+        "education": {
+          "title": "Education (neck/back)",
+          "type": "boolean"
+        },
+        "deliveredBy": {
+          "title": "Delivered By",
+          "type": "string"
+        },
+        "informationNotInChart": {
+          "title": "This information is not in the chart  ",
+          "type": "boolean"
+        }
+      },
+      "dependencies": {},
+      "required": []
+    },
+    "selfCareAdvice": {
+      "title": "11.F) If this adult was/is being treated, was/is this adult being treated with advice on self-care :",
+      "type": "object",
+      "properties": {
+        "selfCareAdvice": {
+          "title": "Advice on self-care",
+          "type": "boolean"
+        },
+        "deliveredBy": {
+          "title": "Delivered By",
+          "type": "string"
+        },
+        "informationNotInChart": {
+          "title": "This information is not in the chart  ",
+          "type": "boolean"
+        }
+      },
+      "dependencies": {},
+      "required": []
+    },
+    "corsetBackBraceAssistiveDevice": {
+      "title": "11.G) If this adult was/is being treated, was/is this adult being treated with a corset, back brace, assistive device:",
+      "type": "object",
+      "properties": {
+        "corsetBackBraceAssistiveDevice": {
+          "title": "Corset, back brace, assistive device:",
+          "type": "boolean"
+        },
+        "deliveredBy": {
+          "title": "Delivered By",
+          "type": "string"
+        },
+        "informationNotInChart": {
+          "title": "This information is not in the chart  ",
+          "type": "boolean"
+        }
+      },
+      "dependencies": {},
+      "required": []
+    },
+    "numberOfTreatmentVisits": {
+      "title": "12. How many treatment visits in total did this patient have for their neck/back pain",
+      "type": "object",
+      "properties": {
+        "numberOfTreatmentVisits": {
+          "title": "Number of treatment visits",
+          "type": "integer"
+        },
+        "informationNotInChart": {
+          "title": "This information is not in the chart  ",
+          "type": "boolean"
+        }
+      },
+      "dependencies": {},
+      "required": ["numberOfTreatmentVisits"]
+    },
+    "referenced": {
+      "enum": ["yes", "no", "informationNotInChart"],
+      "title": "13.A) Was the patient referred to someone else beyond the primary care clinic?        ",
+      "type": "string",
+      "enumNames": ["Yes", "No", "This information is not in the chart  "]
+    },
+    "specify": {
+      "title": "13.B) If the answer was \"Yes\" to question 13.A), please specify:",
+      "type": "object",
+      "properties": {
+        "generalPhysiotherapy": {
+          "title": "General physiotherapy (PT)",
+          "type": "boolean"
+        },
+        "orthopedicSurgeon": {
+          "title": "Orthopedic surgeon",
+          "type": "boolean"
+        },
+        "neurosurgeon": {
+          "title": "Neurosurgeon",
+          "type": "boolean"
+        },
+        "emergencyRoom": {
+          "title": "Emergency room",
+          "type": "boolean"
+        },
+        "otherSpecify": {
+          "title": "Other (specify)",
+          "type": "string"
+        }
+      },
+      "dependencies": {},
+      "required": []
+    },
+    "additionalComments": {
+      "title": "14) If you have any additional comments, please use the space below: ",
+      "type": "string"
+    }
+  },
+  "dependencies": {},
+  "required": [
+    "communityName",
+    "clinicName",
+    "todaysDate",
+    "preImplementation",
+    "postImplementation",
+    "patientName",
+    "idNumber",
+    "age",
+    "painPreventingWork",
+    "painReducingWorkCapacity",
+    "clinicAttendedDuringLastYear",
+    "attendingClinician",
+    "traditionalHealer",
+    "attendingConductPhysicalExamination",
+    "imagingOrdered",
+    "typeOfImagingOrdered",
+    "diagnosisRendered",
+    "gsciClassification",
+    "gsciSubClassification",
+    "treatedForPainAtThisClinic",
+    "treatedWithMedication",
+    "spineMassage",
+    "homeGroupExercises",
+    "numberOfTreatmentVisits",
+    "referenced"
+  ]
+}

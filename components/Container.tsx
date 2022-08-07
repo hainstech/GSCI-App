@@ -10,4 +10,6 @@ export const QuestionnaireContainer = styled.View`
   width: 80%;
   height: 90%;
   margin-top: 10%;
+  margin-bottom: 10%;
+  align-self: center;
 `;

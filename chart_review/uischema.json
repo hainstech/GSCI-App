@@ -1,0 +1,147 @@
+{
+  "sex": {
+    "ui:widget": "radio"
+  },
+  "painPreventingWork": {
+    "ui:widget": "radio"
+  },
+  "painReducingWorkCapacity": {
+    "ui:widget": "radio"
+  },
+  "clinicAttendedDuringLastYear": {
+    "ui:widget": "radio"
+  },
+  "attendingClinician": {
+    "ui:order": [
+      "doctor",
+      "nurse",
+      "physiotherapist ",
+      "chiropractor ",
+      "other",
+      "specify",
+      "informationNotInChart"
+    ]
+  },
+  "traditionalHealer": {
+    "ui:widget": "radio"
+  },
+  "attendingConductPhysicalExamination": {
+    "ui:widget": "radio"
+  },
+  "imagingOrdered": {
+    "ui:widget": "radio"
+  },
+  "typeOfImagingOrdered": {
+    "ui:order": ["xRays", "ctScan", "mri", "ultrasound", "boneScan"]
+  },
+  "diagnosisRendered": {
+    "ui:widget": "radio"
+  },
+  "gsciClassification": {
+    "ui:widget": "radio"
+  },
+  "gsciSubClassification": {
+    "ui:widget": "radio"
+  },
+  "treatedForPainAtThisClinic": {
+    "ui:widget": "radio"
+  },
+  "treatedWithMedication": {
+    "prescribedForPainNarcotics": {
+      "ui:widget": "radio"
+    },
+    "medicationByInjection": {
+      "ui:widget": "radio"
+    },
+    "ui:order": [
+      "prescriptionNSAID              ",
+      "non-prescriptionNSAID",
+      "acetaminophen",
+      "muscleRelaxants",
+      "opioidsNarcotics",
+      "narcoticName",
+      "prescribedForPainNarcotics",
+      "otherSpecify",
+      "medicationByInjection"
+    ]
+  },
+  "spineMassage": {
+    "ui:order": ["spineMassage", "deliveredBy", "informationNotInChart"]
+  },
+  "manipulation": {
+    "ui:order": ["spineManipulation", "deliveredBy", "informationNotInChart"]
+  },
+  "homeGroupExercises": {
+    "ui:order": ["homeGroupExercises", "deliveredBy", "informationNotInChart"]
+  },
+  "education": {
+    "ui:order": ["education", "deliveredBy", "informationNotInChart"]
+  },
+  "selfCareAdvice": {
+    "ui:order": ["selfCareAdvice", "deliveredBy", "informationNotInChart"]
+  },
+  "corsetBackBraceAssistiveDevice": {
+    "ui:order": [
+      "corsetBackBraceAssistiveDevice",
+      "deliveredBy",
+      "informationNotInChart"
+    ]
+  },
+  "numberOfTreatmentVisits": {
+    "ui:order": ["numberOfTreatmentVisits", "informationNotInChart"]
+  },
+  "referenced": {
+    "ui:widget": "radio"
+  },
+  "specify": {
+    "ui:order": [
+      "generalPhysiotherapy",
+      "orthopedicSurgeon",
+      "neurosurgeon",
+      "emergencyRoom",
+      "otherSpecify"
+    ]
+  },
+  "additionalComments": {
+    "ui:widget": "textarea"
+  },
+  "ui:order": [
+    "communityName",
+    "clinicName",
+    "todaysDate",
+    "preImplementation",
+    "postImplementation",
+    "patientName",
+    "idNumber",
+    "age",
+    "sex",
+    "occupation",
+    "painPreventingWork",
+    "painReducingWorkCapacity",
+    "informationNotInFile",
+    "clinicAttendedDuringLastYear",
+    "attendingClinician",
+    "traditionalHealer",
+    "attendingConductPhysicalExamination",
+    "imagingOrdered",
+    "typeOfImagingOrdered",
+    "diagnosisRendered",
+    "writeDiagnosisHere",
+    "gsciClassification",
+    "appropriateClassification",
+    "gsciSubClassification",
+    "appropriateSubClassification",
+    "treatedForPainAtThisClinic",
+    "treatedWithMedication",
+    "spineMassage",
+    "manipulation",
+    "homeGroupExercises",
+    "education",
+    "selfCareAdvice",
+    "corsetBackBraceAssistiveDevice",
+    "numberOfTreatmentVisits",
+    "referenced",
+    "specify",
+    "additionalComments"
+  ]
+}
