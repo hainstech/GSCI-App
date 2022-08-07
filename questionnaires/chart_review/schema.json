@@ -11,7 +11,7 @@
       "title": "Clinic name"
     },
     "todaysDate": {
-      "title": "Todays Date",
+      "title": "Today's Date",
       "type": "string"
     },
     "preImplementation": {
