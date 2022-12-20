@@ -14,7 +14,10 @@ const storeQuestionnaire = async (
     ? JSON.parse(storedQuestionnaires)
     : [];
   questionnaires.push(questionnaire);
-  await AsyncStorage.setItem('questionnaires', JSON.stringify(questionnaires));
+  await AsyncStorage.setItem(
+    'filledQuestionnaires',
+    JSON.stringify(questionnaires)
+  );
 
   Alert.alert(
     'Saved to storage',

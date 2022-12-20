@@ -12,7 +12,7 @@ import {
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { ColorSchemeName } from 'react-native';
+import { Alert, Button, ColorSchemeName } from 'react-native';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
@@ -58,7 +58,39 @@ function RootNavigator() {
       <Stack.Screen
         name="Questionnaire"
         component={QuestionnaireScreen}
-        options={{ title: 'Questionnaire' }}
+        options={({ navigation }) => ({
+          title: 'Questionnaire',
+          headerLeft: () => (
+            <Button
+              onPress={() => {
+                // ask for confirmation, then go back.
+                // Are you sure you want to go back? All your answers will be lost.
+                // Yes, go back
+                // No, stay here
+
+                // navigation.goBack();
+
+                Alert.alert(
+                  'Are you sure you want to go back?',
+                  'All your answers will be lost.',
+                  [
+                    {
+                      text: 'No, stay here',
+                      onPress: () => console.log('Cancel Pressed'),
+                      style: 'cancel',
+                    },
+                    {
+                      text: 'Yes, go back',
+                      onPress: () => navigation.goBack(),
+                    },
+                  ],
+                  { cancelable: false }
+                );
+              }}
+              title="Back"
+            />
+          ),
+        })}
       />
     </Stack.Navigator>
   );
@@ -95,9 +127,6 @@ function BottomTabNavigator() {
         component={SettingsScreen}
         options={{
           title: 'Settings',
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon name="sliders" color={color} />
-          ),
         }}
       />
     </BottomTab.Navigator>
